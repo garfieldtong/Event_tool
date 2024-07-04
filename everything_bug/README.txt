@@ -1,7 +1,5 @@
 This document records all the codes and information of this project while using the cloud service
 
-The folder used is 
-
 // Things to install in EC2 ubuntu
 
 
@@ -40,6 +38,11 @@ pip3 install -r requirements.txt
 screen fastapi run app/updated.py --host 127.0.0.1 --port 8000
 
 
+//About screen session
+
+screen -ls   // list all screen sessions
+screen -XS <session-id> quit     // kill selected screen session
+screen -r <session-id>     // reattach to screen session
 
 // Test for docker
 
