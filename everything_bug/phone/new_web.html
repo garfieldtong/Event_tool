@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>同人イベントツール</title>
+
+	<!-- <style>
+		#map_div {
+			background-image: url('map.png');
+			display: block;
+			width: 100%; /* Makes the image stretch to fill the width of its container */
+			height: 0;
+			padding-top: 64%;
+			
+			border: 1px solid red;
+
+			position: relative;
+			background-size: 100% auto;
+			background-position: center; /* Center the background image */
+			background-repeat: no-repeat;
+		}
+	</style> -->
+
+	<style>
+
+		.table-container {
+			overflow-x: auto; /* Ensures scrollbars appear if needed */
+		}
+
+		/* #map_div {
+			position:relative;
+			border: 1px solid red;
+		} */
+
+		#map, #plots {
+			position: absolute;
+			padding-top: 10%;
+			padding-bottom: 10%;
+			/* top: 0;
+			left: 0; */
+
+		}
+
+
+		
+
+	</style>
+
+</head>
+<body>
+
+    <div class="fab">
+        <button class="fab-button">+</button>
+        <div id="menu" class="menu">
+            <button id = "showAllBtn" type = "submit">Show All</button>
+            <button id = "closestBtn" type = "submit">周り</button>
+            <button id = "addCircleBtn" type = "submit">Add Row</button>
+            <!-- <button id = "settingBtn" type = "submit">Setting</button> -->
+            <button id = "filterBtn" type = "submit">絞り込む</button>
+			<button id = "plotBtn" type = "submit">Plot</button>
+			<button id = "resetBtn" type = "submit">Reset</button>
+        </div>
+    </div>
+	
+	<div id="dialog" title="現在情報" style="display:none;">
+	  <form action='tuscript.php'>
+		<fieldset>
+		
+			<div>
+				<label for="row">行</label>
+				<input type="text" name="dialogRow" id="dialogRow" value="" class="text"><br>
+				<label for="row">番</label>
+				<input type="text" name="dialogBooth" id="dialogBooth" value="" class="text">
+			</div>
+		</fieldset>
+	  </form>
+	</div>
+
+	<div id="resetDialog" title="Reset" style="display:none;">
+        <form action='tuscript.php'>
+          <fieldset>
+            <div>
+                <p>Sure?</p>
+            </div>
+          </fieldset>
+        </form>
+    </div>
+
+	<div id="addCircleDialog" title="サークル追加" style="display:none;">
+        <form action='tuscript.php'>
+          <fieldset>
+            <div>
+                <input type="text" name="addCircleInput" id="newCircle" value="" class="text" placeholder="サークル名"><br>
+                <input type="text" name="addCircleInput" id="newRow" value="" class="text" placeholder="行"><br>
+                <input type="text" name="addCircleInput" id="newNumber" value="" class="text" placeholder="番"><br>
+            </div>
+          </fieldset>
+        </form>
+    </div>
+    
+	<div class="table-container">
+		<table id="myTable">
+			<thead>
+				<tr>
+					<th>サークル名</th>
+					<th>行</th>
+					<th>番</th>
+					<th>購入済み</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div id="map_div" style="display: None">
+		<canvas class="canvas" id="map"></canvas>
+		<canvas class="canvas" id="plots"></canvas>
+	</div>
+
+	<!-- <div id="map_div" style="padding-top: 20px;">
+		<img id="map"></img>
+
+    </div> -->
+
+	<div id="filterDialog" title="絞り込む" style="display:none;">
+        <form action='tuscript.php'>
+          <fieldset>
+            <div>
+                <input type="radio" id="boughtOption" name="filterBoughtOption" value="1" checked>購入済み
+                <input type="radio" id="notBoughtOption" name="filterBoughtOption" value="0">未購入<br>
+
+            </div>
+          </fieldset>
+        </form>
+    </div>
+
+
+<!-- 
+
+    <div id="settingDialog" title="Dialog Title">
+		<div id="settingTabs">
+			<ul>
+				<li><a href="#settingTab1">Page 1</a></li>
+				<li><a href="#settingTab2">Page 2</a></li>
+			</ul>
+			<div id="settingTab1">
+				<div class="corner-text top-left">Top Left1</div>
+				<div class="corner-text top-right">Top Right1</div>
+				<div class="corner-text bottom-left">Bottom Left</div>
+				<div class="corner-text bottom-right">Bottom Right</div>
+				<div class="center-text">Center Text 1</div>
+				<div class="center-text">Center Text 2</div>
+			</div>
+			<div id="settingTab2">
+				<div class="corner-text top-left">Top Left</div>
+				<div class="corner-text top-right">Top Right</div>
+				<div class="corner-text bottom-left">Bottom Left</div>
+				<div class="corner-text bottom-right">Bottom Right</div>
+				<div class="center-text">Center Text 3</div>
+				<div class="center-text">Center Text 4</div>
+			</div>
+		</div>
+	</div> -->
+
+	<!-- <script src="p5/p5.js"></script> -->
+    <script src="script.js"></script>
+</body>
+</html>

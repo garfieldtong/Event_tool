@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Draw Polyp!</title>
+    
+
+
+
+</head>
+<body>
+
+    <div class="fab">
+        <button class="fab-button">+</button>
+        <div id="menu" class="menu">
+            <button id = "showAllBtn" type = "submit">Show All</button>
+            <button id = "firstDayBtn" type = "submit">一日目</button>
+            <button id = "secondDayBtn" type = "submit">二日目</button>
+            <button id = "closestBtn" type = "submit">周り</button>
+            <button id = "addCircleBtn" type = "submit">Add Row</button>
+            <button id = "settingBtn" type = "submit">Setting</button>
+            <button id = "filterBtn" type = "submit">絞り込む</button>
+        </div>
+    </div>
+	
+	<div id="dialog" title="現在情報" style="display:none;">
+	  <form action='tuscript.php'>
+		<fieldset>
+		<div>		
+			<label for="day1Option">
+				<input type="radio" id="day1Option" name="dayOption" value="1">一日目
+			</label>
+			
+			<label for="day2Option">
+				<input type="radio" id="day2Option" name="dayOption" value="2">二日目
+			</label>
+		</div>
+		
+		<div>
+		  <label for="row">行</label>
+		  <input type="text" name="dialogRow" id="dialogRow" value="" class="text">
+		</div>
+		</fieldset>
+	  </form>
+	</div>
+
+	<div id="addCircleDialog" title="サークル追加" style="display:none;">
+        <form action='tuscript.php'>
+          <fieldset>
+            <div>
+                <input type="text" name="addCircleInput" id="newCircle" value="" class="text" placeholder="サークル名"><br>
+                <input type="radio" id="hallEastOption" name="newHallOption" value="東">東
+                <input type="radio" id="hallWestOption" name="newHallOption" value="西">西<br>
+                <input type="text" name="addCircleInput" id="newRow" value="" class="text" placeholder="行"><br>
+                <input type="text" name="addCircleInput" id="newNumber" value="" class="text" placeholder="番"><br>
+                <input type="radio" id="day1Option" name="newDayOption" value="1">一日目
+                <input type="radio" id="day2Option" name="newDayOption" value="2">二日目
+            </div>
+          </fieldset>
+        </form>
+    </div>
+    
+
+    <table id="myTable">
+		<thead>
+			<tr>
+				<th>サークル名</th>
+				<th>ホール</th>
+				<th>行</th>
+				<th>番</th>
+				<th>何日目</th>
+				<th>購入済み</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		</tbody>
+    </table>
+
+	<div id="filterDialog" title="絞り込む" style="display:none;">
+        <form action='tuscript.php'>
+          <fieldset>
+            <div>
+                <input type="checkbox" id="filterDay1" name="filterDayOption" value="1" checked>一日目
+                <input type="checkbox" id="filterDay2" name="filterDayOption" value="2" checked>二日目<br>
+                <input type="checkbox" id="filterHallEast" name="filterHallOption" value="東" checked>東
+                <input type="checkbox" id="filterHallWest" name="filterHallOption" value="西" checked>西<br>
+                <input type="checkbox" id="boughtOption" name="filterBoughtOption" value="1" checked>購入済み
+                <input type="checkbox" id="notBoughtOption" name="filterBoughtOption" value="0" checked>未購入<br>
+
+            </div>
+          </fieldset>
+        </form>
+    </div>
+
+
+
+
+    <div id="settingDialog" title="Dialog Title">
+		<div id="settingTabs">
+			<ul>
+				<li><a href="#settingTab1">Page 1</a></li>
+				<li><a href="#settingTab2">Page 2</a></li>
+			</ul>
+			<div id="settingTab1">
+				<div class="corner-text top-left">Top Left1</div>
+				<div class="corner-text top-right">Top Right1</div>
+				<div class="corner-text bottom-left">Bottom Left</div>
+				<div class="corner-text bottom-right">Bottom Right</div>
+				<div class="center-text">Center Text 1</div>
+				<div class="center-text">Center Text 2</div>
+			</div>
+			<div id="settingTab2">
+				<div class="corner-text top-left">Top Left</div>
+				<div class="corner-text top-right">Top Right</div>
+				<div class="corner-text bottom-left">Bottom Left</div>
+				<div class="corner-text bottom-right">Bottom Right</div>
+				<div class="center-text">Center Text 3</div>
+				<div class="center-text">Center Text 4</div>
+			</div>
+		</div>
+	</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
