@@ -34,7 +34,7 @@ fastapi run app/updated.py --host 127.0.0.1 --port 8000
 ```
 
 ## 4. Open the web in Event_tool/phone/new_web.html
-As this tool was devloped as a mobile application, open developer tool in your browser (F12) and choose "Toggle device toolbar" (Ctrl+Shift+M) to view as a device.
+As this tool was devloped as a mobile application, use the developer tool in your browser and choose "Toggle device toolbar" (or just press Ctrl+Shift+M) to view as a device.
 
 ## Using Docker for setup (optional)
 ```
