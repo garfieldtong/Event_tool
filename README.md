@@ -1,18 +1,31 @@
 # Instructions
 This document records all the codes and information of this project through **setting up a local server**
 
+## 1. Clone repo
 ```
 git clone -b local https://github.com/garfieldtong/Event_tool.git
 ```
 
-## Using venv as virtual environment
+## 2. Set up virtual environment
+
+Set up either using venv or conda
+
+**venv:**
 ```
 sudo apt install python3.10-venv
 python3 -m venv "CMP"
 cd CMP
 source bin/activate
-cd ~/Event_tool/everything_bug/code
+cd Event_tool/code
 pip3 install -r requirements.txt
+```
+
+**conda:**
+```
+conda create -n CMP python=3.10
+conda activate CMP
+cd Event_tool/code
+pip install -r requirements.txt
 ```
 
 ## Activate server
