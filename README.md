@@ -1,7 +1,9 @@
 # Instructions
 This document records all the codes and information of this project through **setting up a local server**
 
+```
 git clone https://github.com/garfieldtong/Event_tool.git
+```
 
 ## Using venv as virtual environment
 ```
@@ -18,7 +20,7 @@ pip3 install -r requirements.txt
 fastapi run app/updated.py --host 127.0.0.1 --port 8000
 ```
 
-// Test for docker
+## Using Docker for setup (optional)
 
 docker build -t proj_test .
 docker run -d --name proj_test -p 8000:8000 proj_test
