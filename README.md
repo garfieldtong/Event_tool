@@ -2,7 +2,7 @@
 This document records all the codes and information of this project through **setting up a local server**
 
 ```
-git clone https://github.com/garfieldtong/Event_tool.git
+git clone -b local https://github.com/garfieldtong/Event_tool.git
 ```
 
 ## Using venv as virtual environment
@@ -21,7 +21,7 @@ fastapi run app/updated.py --host 127.0.0.1 --port 8000
 ```
 
 ## Using Docker for setup (optional)
-
+```
 docker build -t proj_test .
 docker run -d --name proj_test -p 8000:8000 proj_test
 
@@ -39,7 +39,7 @@ docker run -p 8000:8000 proj_test:1.0.0
 docker image tag proj_test:1.0.0 c8n.io/garfieldcm385/proj_test
 
 docker push c8n.io/garfieldcm385/proj_test
-
+```
 
 
 
