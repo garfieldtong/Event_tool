@@ -1,48 +1,22 @@
-This document records all the codes and information of this project while using the cloud service
-
-// Things to install in EC2 ubuntu
-
-
-sudo apt-get update
-sudo apt install -y python3-pip nginx
-pip install --upgrade pip setuptools wheel
-sudo vim /etc/nginx/sites-enabled/fastapi_nginx
-
-server {
-        listen 80;
-        server_name 57.180.8.175;
-
-        location / {
-                proxy_pass http://127.0.0.1:8000;
-        }
-
-        location /backup/ {
-                root /var/www/html;
-                index new_web.html;
-        }
-
-}
-
-sudo service nginx restart
+# Instructions
+This document records all the codes and information of this project through **setting up a local server**
 
 git clone https://github.com/garfieldtong/Event_tool.git
 
-*need to move the new_web.html to /var/www/html/backup/ in advance
-
-sudo apt install python3.10-venv     // need to use venv, or else it can't find fastapi package
+## Using venv as virtual environment
+```
+sudo apt install python3.10-venv
 python3 -m venv "CMP"
 cd CMP
 source bin/activate
 cd ~/Event_tool/everything_bug/code
 pip3 install -r requirements.txt
-screen fastapi run app/updated.py --host 127.0.0.1 --port 8000
+```
 
-
-//About screen session
-
-screen -ls   // list all screen sessions
-screen -XS <session-id> quit     // kill selected screen session
-screen -r <session-id>     // reattach to screen session
+## Activate server
+```
+fastapi run app/updated.py --host 127.0.0.1 --port 8000
+```
 
 // Test for docker
 
