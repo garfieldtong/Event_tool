@@ -1,14 +1,12 @@
-# Instructions
-This document records all the codes and information of this project through **setting up a local server**
-
-## 1. Clone repo
+# インストール
+## 1. リポジトリをクローンする
 ```
 git clone -b local https://github.com/garfieldtong/Event_tool.git
 ```
 
-## 2. Set up virtual environment
+## 2. Pythonの仮想環境作成
 
-Set up either using venv or conda
+venv または conda　のいずれかを使用します。
 
 **venv:**
 ```
@@ -28,12 +26,15 @@ cd Event_tool/code
 pip install -r requirements.txt
 ```
 
-## 3. Activate server
+## 3. サーバー構築
 ```
 fastapi run app/updated.py --host 127.0.0.1 --port 8000
 ```
 
-## 4. Open the web in Event_tool/phone/new_web.html
-As this tool was devloped as a mobile application, use the developer tool in your browser and choose "Toggle device toolbar" (or press F12, then Ctrl+Shift+M) to view as a device.
+## 4. Event_tool/phone/new_web.htmlでサイトを起動
+このツールはモバイル端末向けに最適化されています。パソコンでご利用の場合は、ブラウザの開発者ツールを使って携帯表示モードに切り替えることをおすすめします。
+切り替え方法は以下の通りです：
+1.ブラウザの開発者ツールを開く（F12キーを押す）
+2.'Toggle device toolbar'を選択する（または Ctrl+Shift+M を押す）
 
 
