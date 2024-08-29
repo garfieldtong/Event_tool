@@ -1,24 +1,3 @@
-<style>
-.image-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.image-container img {
-  max-width: 100%; /* Adjust this percentage as needed */
-  margin: 0 10px; /* Add some spacing between images */
-}
-
-.image-container p {
-  font-size: 14px;
-  line-height: 20px;
-  margin-top: 5px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-</style>
-
 # Introduction
 
 It is not uncommon that visitors aim to buy as much as they can in events, and it is always necessary for them to keep track of the purchase progress. Big events like Comiket allows visitors to save their targeted booths with functions of web catalog, enabling them to make a comprehensive preparation before events, as well as a better control during events.
@@ -30,21 +9,32 @@ In view of this, given that the Internet condition is good enough, this project 
 This project uses にじそうさく09 as an example. The following are some available functions in this tool:
 
 
-<div class="image-container">
+<div class="image-container" style="display: flex; justify-content: space-between;">
   <div class="image-item">
-    <source src="Assets/Add.webm" type="video/webm">
-    <img src="Assets/add.gif" alt="Add circles">
-    <p>Add circles</p>
+    <img src="Assets/add.gif" alt="Add circles" style="max-width: 100%; margin: 0 10px;">
+    <p style="font-size: 14px;
+  line-height: 20px;
+  margin-top: 5px;
+  text-align: center;
+  vertical-align: middle;">Add circles</p>
   </div>
   
   <div class="image-item">
-    <img src="Assets/Filter.gif" alt="Filter circles">
-    <p>Filter circles</p>
+    <img src="Assets/Filter.gif" alt="Filter circles" style="max-width: 100%; margin: 0 10px;">
+    <p style="font-size: 14px;
+  line-height: 20px;
+  margin-top: 5px;
+  text-align: center;
+  vertical-align: middle;">Filter circles</p>
   </div>
   
   <div class="image-item">
-    <img src="Assets/Map.gif" alt="Plot circles on map">
-    <p>Plot circles on map</p>
+    <img src="Assets/Map.gif" alt="Plot circles on map" style="max-width: 100%; margin: 0 10px;">
+    <p style="font-size: 14px;
+  line-height: 20px;
+  margin-top: 5px;
+  text-align: center;
+  vertical-align: middle;">Plot circles on map</p>
   </div>
 </div>
 
